@@ -63,3 +63,4 @@ Si l'opération réussit, vous devriez recevoir un message vous invitant à test
 ![alt text](image-7.png)
 
 Vous pouvez ensuite quitter la console en tapant /bye ou en appuyant sur Ctrl + D.
+![alt text](image-8.png)
