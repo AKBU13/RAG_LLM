@@ -26,3 +26,40 @@ Avant de commencer, assurez-vous d'avoir installé la dernière version des él�
 
 * Ollama – Ollama apporte de puissants modèles linguistiques de grande taille (LLM) directement sur votre ordinateur local, éliminant ainsi le besoin de ressources cloud. Il vous permet d'accéder à plusieurs modèles, de personnaliser les résultats et de les intégrer facilement à votre chatbot.
 
+## Installation d'Ollama
+
+Ollama est un outil open source que vous pouvez utiliser pour exécuter et gérer des LLM sur votre ordinateur. Une fois installé, vous pouvez accéder à divers LLM en fonction de vos besoins. Vous utiliserez le modèle llama3.2:3b-instruct-q4_K_M pour créer ce chatbot.
+
+Un modèle quantifié est une version d'un modèle d'apprentissage automatique qui a été optimisée pour utiliser moins de mémoire et de puissance de calcul en réduisant la précision des nombres qu'il utilise. Cela vous permet d'utiliser un LLM localement, en particulier lorsque vous n'avez pas accès à un GPU (unité de traitement graphique - un processeur spécialisé qui effectue des calculs complexes).
+
+Pour commencer, vous pouvez télécharger et installer le logiciel Ollama ici.
+
+Vous pouvez ensuite confirmer l'installation en exécutant cette commande :
+
+![alt text](image-1.png)
+
+Run the following command to start Ollama:
+
+![alt text](image-2.png)
+
+Ensuite, exécutez la commande suivante pour extraire la quantification Q4_K_M de llama3.2:3b-instruct :
+
+![alt text](image-3.png)
+
+Confirmez ensuite que le modèle a bien été extrait à l'aide de cette commande :
+
+![alt text](image-4.png)
+
+Si l'extraction du modèle a réussi, une liste contenant le nom, l'ID et la taille du modèle sera renvoyée, comme suit :
+
+![alt text](image-5.png)
+
+Vous pouvez désormais discuter avec le modèle :
+
+![alt text](image-6.png)
+
+Si l'opération réussit, vous devriez recevoir un message vous invitant à tester le système en posant une question et en obtenant une réponse. Par exemple :
+
+![alt text](image-7.png)
+
+Vous pouvez ensuite quitter la console en tapant /bye ou en appuyant sur Ctrl + D.
