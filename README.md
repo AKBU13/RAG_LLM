@@ -83,3 +83,28 @@ Ensuite, téléchargez et enregistrez l'ensemble de données de recettes :
 Inspectez le dataframe et extrayez le premier élément comme ceci :
 
 ![alt text](image-11.png)
+
+Un rapide examen de l'objet recipes_list montre qu'il contient deux objets de type tibble. Vous n'utiliserez que le premier élément pour ce projet. Un tibble est un type de structure de données utilisé pour stocker et manipuler des données. Il est similaire à un dataframe traditionnel, mais il est conçu pour appliquer des règles plus strictes et effectuer moins d'actions automatiques que les dataframes traditionnels.
+
+Nous utiliserons un dataframe classique dans ce projet, car il est plus familier à la plupart des gens. Il permet également de gérer efficacement l'indexation des lignes, ce qui est essentiel pour accéder à des lignes spécifiques de notre ensemble de données de recettes et les manipuler.
+
+Dans le bloc de code ci-dessous, vous convertirez le tibble en dataframe, puis supprimerez la première colonne, qui est la colonne d'index. Vous inspecterez ensuite le dataframe nouvellement converti et supprimerez les colonnes inutiles.
+
+Il est préférable de supprimer les colonnes inutiles afin de rationaliser l'ensemble de données et de se concentrer sur les caractéristiques pertinentes. Dans ce projet, nous supprimerons certaines colonnes qui ne sont pas particulièrement utiles pour l'entraînement du chatbot. Cela permet de garantir que le modèle se concentre sur des données significatives afin d'améliorer sa précision et sa fonctionnalité.
+
+![alt text](image-12.png)
+
+Vous devez maintenant identifier les lignes contenant des valeurs NA (manquantes), ce que vous pouvez faire comme suit :
+
+![alt text](image-13.png)
+
+Il est important de traiter les valeurs NA afin de garantir l'exhaustivité de vos données, d'éviter les erreurs et de préserver le contexte.
+
+Remplacez maintenant les valeurs NA et vérifiez qu'il n'y a pas de valeurs manquantes :
+
+![alt text](image-14.png)
+
+Pour ce tutoriel, nous allons réduire le dataframe aux 250 premières lignes à des fins de démonstration. Cela permet de gagner du temps lors de la génération des embeddings.
+
+![alt text](image-15.png)
+
