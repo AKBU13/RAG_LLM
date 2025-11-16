@@ -64,3 +64,22 @@ Si l'opération réussit, vous devriez recevoir un message vous invitant à test
 
 Vous pouvez ensuite quitter la console en tapant /bye ou en appuyant sur Ctrl + D.
 ![alt text](image-8.png)
+
+
+## Collecte et nettoyage des données
+
+Le chatbot que vous développez sera un assistant culinaire qui vous proposera des recettes en fonction des ingrédients dont vous disposez, de ce que vous souhaitez manger et de la quantité de nourriture que permet de préparer une recette.
+
+Vous devez d'abord obtenir les données nécessaires pour entraîner le modèle. Vous utiliserez un ensemble de données contenant des recettes provenant de Kaggle.
+
+Pour commencer, chargez les bibliothèques nécessaires :
+
+![alt text](image-9.png)
+
+Ensuite, téléchargez et enregistrez l'ensemble de données de recettes :
+
+![alt text](image-10.png)
+
+Inspectez le dataframe et extrayez le premier élément comme ceci :
+
+![alt text](image-11.png)

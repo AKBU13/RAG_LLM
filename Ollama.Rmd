@@ -1,0 +1,19 @@
+---
+title: "R Notebook for LLM chat boot"
+output: html_notebook
+---
+
+```{r}
+install.packages('RKaggle')
+install.packages('wk')
+```
+
+```{r}
+# chargement des bibliothèques requises
+library(xml2) # lecture, analyse et manipulation de documents XML et HTML
+library(jsonlite) # manipulation d'objets JSON
+
+library(RKaggle) # téléchargement d'ensembles de données depuis Kaggle 
+library(dplyr)   # manipulation de données
+```
+
