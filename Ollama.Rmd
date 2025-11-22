@@ -17,3 +17,78 @@ library(RKaggle) # téléchargement d'ensembles de données depuis Kaggle
 library(dplyr)   # manipulation de données
 ```
 
+
+```{r}
+# Download and read the "recipe" dataset from Kaggle
+recipes_list <- RKaggle::get_dataset("thedevastator/better-recipes-for-a-better-life")
+```
+
+```{r}
+# inspect the dataset
+class(recipes_list)
+str(recipes_list)
+head(recipes_list)
+# extract the first tibble
+recipes_df <- recipes_list[[1]]
+```
+
+```{r}
+# convert to dataframe and drop the first column
+recipes_df <- as.data.frame(recipes_df[, -1])
+# inspect the converted dataframe
+head(recipes_df)
+class(recipes_df)
+colnames(recipes_df)
+# drop unnecessary columns
+cleaned_recipes_df <- subset(recipes_df, select = -c(yield,rating,url,cuisine_path,nutrition,timing,img_src))
+```
+
+```{r}
+# Identify rows and columns with NA values
+which(is.na(cleaned_recipes_df), arr.ind = TRUE)
+
+# a quick inspection reveals columns [2:4] have missing values
+subset_column_names <- colnames(cleaned_recipes_df)[2:4]
+subset_column_names
+```
+
+```{r}
+# Replace NA values dynamically based on conditions
+cols_to_modify <- c("prep_time", "cook_time", "total_time")
+cleaned_recipes_df[cols_to_modify] <- lapply(
+  cleaned_recipes_df[cols_to_modify],
+  function(x, df) {
+    # Replace NA in prep_time and cook_time where both are NA
+    replace(x, is.na(df$prep_time) & is.na(df$cook_time), "unknown")
+  },
+  df = cleaned_recipes_df  # Pass the whole dataframe for conditions
+)
+cleaned_recipes_df <- cleaned_recipes_df %>%
+  mutate(
+    prep_time = case_when(
+      # If cooktime is present but preptime is NA, replace with "no preparation required"
+      !is.na(cook_time) & is.na(prep_time) ~ "no preparation required",
+      # Otherwise, retain original value
+      TRUE ~ as.character(prep_time)
+    ),
+    cook_time = case_when(
+      # If prep_time is present but cook_time is NA, replace with "no cooking required"
+      !is.na(prep_time) & is.na(cook_time) ~ "no cooking required",
+      # Otherwise, retain original value
+      TRUE ~ as.character(cook_time)
+    )
+  )
+# confirm there are no missing values
+any(is.na(cleaned_recipes_df))
+ 
+
+# confirm the replacing NA logic works by inspecting specific rows
+cleaned_recipes_df[1081,]
+cleaned_recipes_df[1,]
+cleaned_recipes_df[405,]
+```
+
+```{r}
+# recommended for demo/learning purposes
+cleaned_recipes_df <- head(cleaned_recipes_df,250)
+```

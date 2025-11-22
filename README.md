@@ -108,3 +108,8 @@ Pour ce tutoriel, nous allons réduire le dataframe aux 250 premières lignes à
 
 ![alt text](image-15.png)
 
+## Comment créer des chunks
+
+Pour comprendre pourquoi le chunking est important avant l'intégration, vous devez comprendre ce qu'est une intégration.
+
+Un encodage est une représentation vectorielle d'un mot ou d'une phrase. Les machines ne comprennent pas le texte humain, elles comprennent les chiffres. Les LLM fonctionnent en transformant le texte humain en représentations numériques afin de fournir des réponses. Le processus de génération d'encodages nécessite beaucoup de calculs, et la décomposition des données à encoder optimise le processus d'encodage.
